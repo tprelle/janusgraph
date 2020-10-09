@@ -14,10 +14,14 @@
 
 package org.janusgraph.example;
 
+import java.io.File;
 import java.util.stream.Stream;
 
 import org.apache.commons.configuration2.Configuration;
-import org.apache.commons.configuration2.ConfigurationException;
+import org.apache.commons.configuration2.FileBasedConfiguration;
+import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+import org.apache.commons.configuration2.builder.fluent.Parameters;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.tinkerpop.gremlin.driver.Client;
 import org.apache.tinkerpop.gremlin.driver.Cluster;
@@ -65,7 +69,9 @@ public class RemoteGraphApp extends JanusGraphApp {
     @Override
     public GraphTraversalSource openGraph() throws ConfigurationException {
         LOGGER.info("opening graph");
-        conf = new PropertiesConfiguration(propFileName);
+        conf = new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)
+            .configure(new Parameters().fileBased()
+                .setFile(new File(propFileName))).getConfiguration();
 
         // using the remote driver for schema
         try {

@@ -14,7 +14,7 @@
 
 package org.janusgraph.example;
 
-import org.apache.commons.configuration2.ConfigurationException;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;

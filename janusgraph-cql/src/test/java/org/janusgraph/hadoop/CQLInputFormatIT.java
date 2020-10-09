@@ -14,15 +14,20 @@
 
 package org.janusgraph.hadoop;
 
+import org.apache.commons.configuration2.FileBasedConfiguration;
+import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+import org.apache.commons.configuration2.builder.fluent.Parameters;
 import org.apache.tinkerpop.gremlin.structure.Graph;
 import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
 import org.janusgraph.JanusGraphCassandraContainer;
+import org.janusgraph.diskstorage.configuration.Configuration;
 import org.janusgraph.diskstorage.configuration.WriteConfiguration;
-import org.apache.commons.configuration2.ConfigurationException;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -34,8 +39,11 @@ public class CQLInputFormatIT extends AbstractInputFormatIT {
     @Container
     private static JanusGraphCassandraContainer cql = new JanusGraphCassandraContainer();
 
-    private PropertiesConfiguration getGraphConfiguration() throws ConfigurationException, IOException {
-        final PropertiesConfiguration config = new PropertiesConfiguration("target/test-classes/cql-read.properties");
+    private org.apache.commons.configuration2.Configuration getGraphConfiguration() throws ConfigurationException, IOException {
+
+        final org.apache.commons.configuration2.Configuration config = new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)
+            .configure(new Parameters().fileBased()
+                .setFile(new File("target/test-classes/cql-read.properties"))).getConfiguration();
         Path baseOutDir = Paths.get((String) config.getProperty("gremlin.hadoop.outputLocation"));
         baseOutDir.toFile().mkdirs();
         String outDir = Files.createTempDirectory(baseOutDir, null).toAbsolutePath().toString();

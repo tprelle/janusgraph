@@ -14,12 +14,16 @@
 
 package org.janusgraph.example;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import org.apache.commons.configuration2.Configuration;
-import org.apache.commons.configuration2.ConfigurationException;
+import org.apache.commons.configuration2.FileBasedConfiguration;
+import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+import org.apache.commons.configuration2.builder.fluent.Parameters;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.tinkerpop.gremlin.process.traversal.P;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
@@ -55,7 +59,9 @@ public class GraphApp {
      */
     public GraphTraversalSource openGraph() throws ConfigurationException {
         LOGGER.info("opening graph");
-        conf = new PropertiesConfiguration(propFileName);
+        conf = new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)
+            .configure(new Parameters().fileBased()
+                .setFile(new File(propFileName))).getConfiguration();
         graph = GraphFactory.open(conf);
         g = graph.traversal();
         return g;

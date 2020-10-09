@@ -14,16 +14,20 @@
 
 package org.janusgraph.hadoop;
 
+import org.apache.commons.configuration2.FileBasedConfiguration;
+import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+import org.apache.commons.configuration2.builder.fluent.Parameters;
 import org.janusgraph.HBaseStorageSetup;
 import org.janusgraph.diskstorage.BackendException;
 import org.janusgraph.diskstorage.configuration.WriteConfiguration;
-import org.apache.commons.configuration2.ConfigurationException;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.apache.tinkerpop.gremlin.structure.Graph;
 import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -41,7 +45,10 @@ public class HBaseInputFormatIT extends AbstractInputFormatIT {
     }
 
     protected Graph getGraph() throws IOException, ConfigurationException {
-        final PropertiesConfiguration config = new PropertiesConfiguration("target/test-classes/hbase-read.properties");
+
+        final org.apache.commons.configuration2.Configuration config = new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)
+            .configure(new Parameters().fileBased()
+                .setFile(new File("target/test-classes/hbase-read.properties"))).getConfiguration();
         Path baseOutDir = Paths.get((String) config.getProperty("gremlin.hadoop.outputLocation"));
         baseOutDir.toFile().mkdirs();
         String outDir = Files.createTempDirectory(baseOutDir, null).toAbsolutePath().toString();
