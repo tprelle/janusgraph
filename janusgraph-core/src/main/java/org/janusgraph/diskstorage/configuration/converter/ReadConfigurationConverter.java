@@ -14,7 +14,7 @@
 
 package org.janusgraph.diskstorage.configuration.converter;
 
-import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration2.BaseConfiguration;
 import org.janusgraph.diskstorage.configuration.ReadConfiguration;
 
 /**

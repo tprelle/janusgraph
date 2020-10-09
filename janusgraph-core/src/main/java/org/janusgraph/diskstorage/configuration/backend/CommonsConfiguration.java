@@ -20,9 +20,9 @@ import org.janusgraph.diskstorage.util.time.Durations;
 import org.janusgraph.diskstorage.configuration.ReadConfiguration;
 import org.janusgraph.diskstorage.configuration.WriteConfiguration;
 
-import org.apache.commons.configuration.BaseConfiguration;
-import org.apache.commons.configuration.Configuration;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.configuration2.BaseConfiguration;
+import org.apache.commons.configuration2.Configuration;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

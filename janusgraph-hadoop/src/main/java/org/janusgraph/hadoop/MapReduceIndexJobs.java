@@ -14,7 +14,7 @@
 
 package org.janusgraph.hadoop;
 
-import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration2.BaseConfiguration;
 import org.apache.hadoop.conf.Configuration;
 import org.janusgraph.diskstorage.configuration.BasicConfiguration;
 import org.janusgraph.diskstorage.configuration.ConfigElement;

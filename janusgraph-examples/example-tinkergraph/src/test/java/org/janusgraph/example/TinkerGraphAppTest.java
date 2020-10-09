@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Set;
 
-import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration2.ConfigurationException;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.tinkergraph.structure.TinkerEdge;
 import org.apache.tinkerpop.gremlin.tinkergraph.structure.TinkerGraph;

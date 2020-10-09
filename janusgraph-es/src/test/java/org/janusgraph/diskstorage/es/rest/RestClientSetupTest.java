@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.net.ssl.SSLContext;
 
-import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration2.BaseConfiguration;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;

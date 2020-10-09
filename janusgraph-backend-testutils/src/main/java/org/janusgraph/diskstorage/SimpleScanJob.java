@@ -25,7 +25,7 @@ import org.janusgraph.diskstorage.keycolumnvalue.scan.ScanMetrics;
 import org.janusgraph.diskstorage.util.BufferUtil;
 import org.janusgraph.diskstorage.util.Hex;
 import org.janusgraph.diskstorage.util.StaticArrayBuffer;
-import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration2.BaseConfiguration;
 
 import java.io.IOException;
 import java.util.*;

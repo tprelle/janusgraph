@@ -16,6 +16,10 @@ package org.janusgraph.core;
 
 import com.google.common.base.Preconditions;
 
+import org.apache.commons.configuration2.FileBasedConfiguration;
+import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+import org.apache.commons.configuration2.builder.PropertiesBuilderParametersImpl;
+import org.apache.commons.configuration2.builder.fluent.Parameters;
 import org.janusgraph.core.log.LogProcessorFramework;
 import org.janusgraph.core.log.TransactionRecovery;
 import org.janusgraph.diskstorage.Backend;
@@ -33,11 +37,11 @@ import static org.janusgraph.graphdb.management.JanusGraphManager.JANUS_GRAPH_MA
 import org.janusgraph.graphdb.database.StandardJanusGraph;
 import org.janusgraph.graphdb.log.StandardLogProcessorFramework;
 import org.janusgraph.graphdb.log.StandardTransactionLogProcessor;
-import org.apache.commons.configuration.BaseConfiguration;
-import org.apache.commons.configuration.Configuration;
-import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.configuration2.ex.ConfigurationException;
+import org.apache.commons.configuration2.BaseConfiguration;
+import org.apache.commons.configuration2.Configuration;
+import org.apache.commons.configuration2.PropertiesConfiguration;
+import org.apache.commons.lang3.StringUtils;
 import org.janusgraph.util.system.IOUtils;
 import org.apache.tinkerpop.gremlin.structure.Graph;
 
@@ -322,7 +326,7 @@ public class JanusGraphFactory {
      * Load a properties file containing a JanusGraph graph configuration.
      * <p>
      * <ol>
-     * <li>Load the file contents into a {@link org.apache.commons.configuration.PropertiesConfiguration}</li>
+     * <li>Load the file contents into a {@link org.apache.commons.configuration2.PropertiesConfiguration}</li>
      * <li>For each key that points to a configuration object that is either a directory
      * or local file, check
      * whether the associated value is a non-null, non-absolute path. If so,
@@ -343,7 +347,9 @@ public class JanusGraphFactory {
                 "Need to specify a readable configuration file, but was given: %s", file.toString());
 
         try {
-            PropertiesConfiguration configuration = new PropertiesConfiguration(file);
+            Configuration configuration = new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)
+                .configure(new Parameters().fileBased()
+                    .setFile(file)).getConfiguration();
 
             final File tmpParent = file.getParentFile();
             final File configParent;

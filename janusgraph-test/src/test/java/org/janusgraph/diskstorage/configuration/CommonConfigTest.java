@@ -18,7 +18,7 @@ import com.google.common.collect.ImmutableMap;
 import org.janusgraph.diskstorage.configuration.backend.CommonsConfiguration;
 
 import org.janusgraph.diskstorage.util.time.Temporals;
-import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration2.BaseConfiguration;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;

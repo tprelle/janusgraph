@@ -77,7 +77,7 @@ import org.janusgraph.util.datastructures.Retriever;
 import org.janusgraph.util.stats.MetricManager;
 import org.apache.tinkerpop.gremlin.structure.*;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.cliffc.high_scale_lib.NonBlockingHashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

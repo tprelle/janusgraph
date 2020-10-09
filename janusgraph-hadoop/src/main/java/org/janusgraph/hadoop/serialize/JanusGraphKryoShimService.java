@@ -15,7 +15,7 @@
 package org.janusgraph.hadoop.serialize;
 
 import com.google.common.collect.ImmutableList;
-import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration2.BaseConfiguration;
 import org.apache.tinkerpop.gremlin.hadoop.structure.io.HadoopPoolShimService;
 import org.apache.tinkerpop.gremlin.hadoop.structure.io.HadoopPools;
 import org.apache.tinkerpop.gremlin.structure.io.IoRegistry;

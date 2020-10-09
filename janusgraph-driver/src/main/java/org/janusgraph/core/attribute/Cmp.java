@@ -17,7 +17,7 @@ package org.janusgraph.core.attribute;
 import com.google.common.base.Preconditions;
 import org.janusgraph.graphdb.database.serialize.AttributeUtils;
 import org.janusgraph.graphdb.query.JanusGraphPredicate;
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 /**
  * Basic comparison relations for comparable (i.e. linearly ordered) objects.

@@ -69,16 +69,16 @@
     </distributionManagement>
     <properties>
         <titan.compatible-versions>1.0.0,1.1.0-SNAPSHOT</titan.compatible-versions>
-        <tinkerpop.version>3.4.6</tinkerpop.version>
+        <tinkerpop.version>3.5.0-SNAPSHOT</tinkerpop.version>
         <junit-platform.version>1.7.0</junit-platform.version>
         <junit.version>5.7.0</junit.version>
-        <mockito.version>2.23.0</mockito.version>
+        <mockito.version>3.2.4</mockito.version>
         <jamm.version>0.3.0</jamm.version>
         <metrics.version>4.1.5</metrics.version>
         <slf4j.version>1.7.30</slf4j.version>
         <httpcomponents.httpclient.version>4.5.10</httpcomponents.httpclient.version>
         <httpcomponents.httpcore.version>4.4.13</httpcomponents.httpcore.version>
-        <hadoop2.version>2.7.7</hadoop2.version>
+        <hadoop2.version>3.2.0</hadoop2.version>
         <hbase1.version>1.4.10</hbase1.version>
         <hbase2.version>2.1.5</hbase2.version>
         <hbase.server.version>1.4.10</hbase.server.version>
@@ -89,7 +89,7 @@
         <jackson2.version>2.11.2</jackson2.version>
         <lucene-solr.version>8.6.2</lucene-solr.version>
         <elasticsearch.version>7.6.2</elasticsearch.version>
-        <commons.beanutils.version>1.7.0</commons.beanutils.version>
+        <commons.beanutils.version>1.9.4</commons.beanutils.version>
         <commons.collections.version>3.2.2</commons.collections.version>
         <zookeeper.version>3.5.7</zookeeper.version>
         <!-- align with org.apache.tinkerpop:tinkerpop -->
@@ -606,7 +606,7 @@
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.module</groupId>
-                <artifactId>jackson-module-scala_2.11</artifactId>
+                <artifactId>jackson-module-scala_2.12</artifactId>
                 <version>${jackson2.version}</version>
             </dependency>
             <dependency>
@@ -689,7 +689,7 @@
             <dependency>
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
-                <version>1.15</version>
+                <version>1.27</version>
             </dependency>
             <dependency>
                 <groupId>net.oneandone.reflections8</groupId>

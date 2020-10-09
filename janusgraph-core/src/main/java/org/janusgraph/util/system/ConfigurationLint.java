@@ -15,15 +15,20 @@
 package org.janusgraph.util.system;
 
 import com.google.common.base.Preconditions;
+import org.apache.commons.configuration2.Configuration;
+import org.apache.commons.configuration2.FileBasedConfiguration;
+import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+import org.apache.commons.configuration2.builder.fluent.Parameters;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.janusgraph.diskstorage.configuration.ConfigElement;
 import org.janusgraph.diskstorage.configuration.ConfigOption;
 import org.janusgraph.diskstorage.configuration.backend.CommonsConfiguration;
 import org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration;
-import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
@@ -54,10 +59,11 @@ public class ConfigurationLint {
         try (final FileInputStream fis = new FileInputStream(filename)) {
             new Properties().load(fis);
         }
-
-        final PropertiesConfiguration apc;
+        final Configuration apc;
         try {
-            apc = new PropertiesConfiguration(filename);
+            apc = new FileBasedConfigurationBuilder<FileBasedConfiguration>(PropertiesConfiguration.class)
+                .configure(new Parameters().fileBased()
+                    .setFile(new File(filename))).getConfiguration();
         } catch (ConfigurationException e) {
             throw new IOException(e);
         }

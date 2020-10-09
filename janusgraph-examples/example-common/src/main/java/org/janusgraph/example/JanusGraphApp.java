@@ -14,7 +14,7 @@
 
 package org.janusgraph.example;
 
-import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration2.ConfigurationException;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
 import org.apache.tinkerpop.gremlin.structure.Edge;
 import org.apache.tinkerpop.gremlin.structure.Vertex;

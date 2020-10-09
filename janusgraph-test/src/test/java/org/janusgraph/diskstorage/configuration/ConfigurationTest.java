@@ -18,7 +18,7 @@ import com.google.common.collect.ImmutableSet;
 import org.janusgraph.core.util.ReflectiveConfigOptionLoader;
 import org.janusgraph.diskstorage.configuration.backend.CommonsConfiguration;
 import org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration;
-import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration2.BaseConfiguration;
 import org.junit.jupiter.api.Test;
 
 import java.util.stream.StreamSupport;

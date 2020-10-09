@@ -18,8 +18,8 @@ import org.apache.tinkerpop.gremlin.structure.Graph;
 import org.apache.tinkerpop.gremlin.structure.util.GraphFactory;
 import org.janusgraph.JanusGraphCassandraContainer;
 import org.janusgraph.diskstorage.configuration.WriteConfiguration;
-import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.commons.configuration2.ConfigurationException;
+import org.apache.commons.configuration2.PropertiesConfiguration;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 

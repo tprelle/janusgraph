@@ -148,7 +148,7 @@ public class JanusGraphPropertiesStep<E> extends PropertiesStep<E> implements Ha
                 if (!hasContainers.isEmpty()) {
                     List<E> properties = new LinkedList<>();
                     iterator.forEachRemaining(e -> {
-                        if(HasContainer.testAll(e, hasContainers)){
+                        if(HasContainer.testAll((Property) e, hasContainers)){
                             properties.add(e);
                         }
                     });

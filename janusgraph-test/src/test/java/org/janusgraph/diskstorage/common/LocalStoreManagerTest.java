@@ -34,7 +34,7 @@ import static org.janusgraph.diskstorage.configuration.BasicConfiguration.Restri
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration2.BaseConfiguration;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

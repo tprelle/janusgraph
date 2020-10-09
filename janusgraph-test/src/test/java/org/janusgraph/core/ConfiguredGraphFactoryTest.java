@@ -24,7 +24,7 @@ import static org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration.GR
 import static org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration.STORAGE_BACKEND;
 
 import org.apache.tinkerpop.gremlin.server.Settings;
-import org.apache.commons.configuration.MapConfiguration;
+import org.apache.commons.configuration2.MapConfiguration;
 
 import java.util.Map;
 import java.util.HashMap;
